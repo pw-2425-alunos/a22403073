@@ -1,0 +1,17 @@
+{% extends "portfolio/base.html" %}
+
+{% block main %}
+<h1 style="text-align: center; margin-bottom: 2rem;">Eliminar Projeto</h1>
+
+<div style="max-width: 500px; margin: 0 auto; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center;">
+    <p>Tem a certeza que quer eliminar <strong>{{ projeto.titulo }}</strong>?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <div style="margin-top: 2rem;">
+            <button type="submit" class="btn btn-danger">Confirmar</button>
+            <a href="{% url 'portfolio:gerir_projetos' %}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

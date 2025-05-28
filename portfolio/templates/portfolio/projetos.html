@@ -1,0 +1,156 @@
+{% extends "portfolio/base.html" %}
+
+{% block main %}
+<style>
+    .projetos-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        padding: 2rem 1rem;
+    }
+
+    .projeto-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        width: 320px;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .projeto-card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+    .projeto-card h2 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        color: #333;
+    }
+
+    .projeto-card p, .projeto-card li {
+        font-size: 0.9rem;
+        color: #555;
+    }
+
+    .projeto-card h3 {
+        margin-top: 1.2rem;
+        font-size: 1rem;
+        color: #444;
+    }
+
+    .projeto-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0.5rem 0;
+    }
+
+    .projeto-card li {
+        margin-bottom: 0.3rem;
+    }
+
+    .projeto-card a {
+        color: #00796b;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .projeto-card a:hover {
+        text-decoration: underline;
+    }
+
+    .tech-logo {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+        vertical-align: middle;
+        margin-right: 6px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 2rem;
+        font-size: 2.2rem;
+        color: #333;
+    }
+</style>
+
+<h1>Projetos Realizados</h1>
+
+<div class="projetos-container">
+    {% for projeto in projetos %}
+        <div class="projeto-card">
+
+            <div>
+                <h2>{{ projeto.titulo }}</h2>
+                <p><strong>Descrição:</strong> {{ projeto.descricao }}</p>
+
+                <p>
+                    {% if projeto.link_github %}
+                        <a href="{{ projeto.link_github }}" target="_blank">GitHub</a>
+                    {% endif %}
+                    {% if projeto.link_demo %}
+                        {% if projeto.link_github %} | {% endif %}
+                        <a href="{{ projeto.link_demo }}" target="_blank">Vídeo Demo</a>
+                    {% endif %}
+                </p>
+
+                <h3>Disciplina</h3>
+                <ul>
+                    <li><strong>Nome:</strong> {{ projeto.disciplina.nome }}</li>
+                    <li><strong>Ano:</strong> {{ projeto.disciplina.ano }}</li>
+                    <li><strong>Semestre:</strong> {{ projeto.disciplina.semestre }}</li>
+                    <li><strong>Docentes:</strong> {{ projeto.disciplina.docentes }}</li>
+                    <li>
+                        <a href="{{ projeto.disciplina.link_moodle }}" target="_blank">Moodle</a> |
+                        <a href="{{ projeto.disciplina.link_ulusofona }}" target="_blank">Página ULusófona</a>
+                    </li>
+                </ul>
+
+                <h3>Tecnologias Utilizadas</h3>
+                <ul>
+                    {% for tech in projeto.tecnologias.all %}
+                        <li>
+                            <img src="{{ tech.logo.url }}" alt="{{ tech.nome }}" class="tech-logo">
+                            <strong>{{ tech.nome }}</strong>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                {% if projeto.conceito %}
+                    <h3>Conceitos Aplicados</h3>
+                    <p>{{ projeto.conceito.conceitos_aplicados }}</p>
+
+                    <h3>Desafios Técnicos</h3>
+                    <p>{{ projeto.conceito.desafios_tecnicos }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <a href="{% url 'portfolio:gerir_projetos' %}"
+           style="
+               position: fixed;
+               bottom: 30px;
+               right: 30px;
+               background: linear-gradient(135deg, #3f51b5, #5c6bc0);
+               color: white;
+               padding: 14px 24px;
+               border-radius: 50px;
+               font-size: 17px;
+               font-weight: 500;
+               text-decoration: none;
+               box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+               transition: background 0.3s ease, transform 0.2s ease;
+               z-index: 1000;
+           "
+           onmouseover="this.style.background='linear-gradient(135deg, #3949ab, #3f51b5)'; this.style.transform='scale(1.05)'"
+           onmouseout="this.style.background='linear-gradient(135deg, #3f51b5, #5c6bc0)'; this.style.transform='scale(1)'">
+           ⚙️ Gerir Projetos
+        </a>
+
+    {% endfor %}
+</div>
+{% endblock %}

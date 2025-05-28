@@ -1,0 +1,27 @@
+{% extends "portfolio/base.html" %}
+
+{% block main %}
+<h1 style="text-align: center; margin-bottom: 2rem;">Gestão de Projetos</h1>
+
+<div style="max-width: 800px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    {% if projetos %}
+        <ul style="list-style: none; padding: 0;">
+            {% for projeto in projetos %}
+                <li style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0;">
+                    <span style="font-size: 1.1rem; font-weight: 500;">{{ projeto.titulo }}</span>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="{% url 'portfolio:editar_projeto' projeto.pk %}" class="btn btn-sm btn-warning" style="border-radius: 6px; padding: 5px 10px;">Editar</a>
+                        <a href="{% url 'portfolio:eliminar_projeto' projeto.pk %}" class="btn btn-sm btn-danger" style="border-radius: 6px; padding: 5px 10px;">Eliminar</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p style="text-align: center;">Nenhum projeto disponível.</p>
+    {% endif %}
+
+    <div style="text-align: center; margin-top: 2rem;">
+        <a href="{% url 'portfolio:criar_projeto' %}" class="btn btn-success" style="padding: 12px 24px; font-size: 16px; border-radius: 8px;">➕ Criar Novo Projeto</a>
+    </div>
+</div>
+{% endblock %}

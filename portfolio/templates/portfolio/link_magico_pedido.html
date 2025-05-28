@@ -1,0 +1,90 @@
+{% extends 'portfolio/base.html' %}
+
+{% block main %}
+<style>
+    .login-container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 2em;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .login-container h2 {
+        text-align: center;
+        margin-bottom: 1.5em;
+        color: #333;
+    }
+
+    .login-container label {
+        display: block;
+        margin-bottom: 0.5em;
+        font-weight: bold;
+    }
+
+    .login-container input {
+        width: 100%;
+        padding: 0.6em;
+        margin-bottom: 1.2em;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .login-container button {
+        width: 100%;
+        padding: 0.7em;
+        background: #333;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .login-container button:hover {
+        background: #555;
+    }
+
+    .login-container .message {
+        color: red;
+        text-align: center;
+        margin-bottom: 1em;
+    }
+
+    .login-container p {
+        text-align: center;
+        margin-top: 1em;
+    }
+
+    .login-container a {
+        color: #007BFF;
+        text-decoration: none;
+    }
+
+    .login-container a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="login-container">
+    <h2>Login com Link Mágico</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="email">Email:</label>
+        <input type="email" name="email" required>
+
+        <button type="submit">Enviar Link</button>
+    </form>
+
+    {% if messages %}
+        <div class="message">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <p>Já tens conta? <a href="{% url 'portfolio:login' %}">Entrar com password</a></p>
+</div>
+{% endblock %}

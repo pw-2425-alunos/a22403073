@@ -1,0 +1,54 @@
+{
+  "artistas": [
+    {
+      "nome": "Playboi Carti",
+      "nacionalidade": "EUA",
+      "ano_inicio": 2011
+    },
+    {
+      "nome": "Future",
+      "nacionalidade": "EUA",
+      "ano_inicio": 2010
+    },
+    {
+      "nome": "Gunna",
+      "nacionalidade": "EUA",
+      "ano_inicio": 2016
+    },
+    {
+      "nome": "Lil Baby",
+      "nacionalidade": "EUA",
+      "ano_inicio": 2017
+    },
+    {
+      "nome": "Frank Ocean",
+      "nacionalidade": "EUA",
+      "ano_inicio": 2010
+    },
+    {
+      "nome": "Brent Faiyaz",
+      "nacionalidade": "EUA",
+      "ano_inicio": 2014
+    },
+    {
+      "nome": "Young Thug",
+      "nacionalidade": "EUA",
+      "ano_inicio": 2010
+    },
+    {
+      "nome": "PARTYNEXTDOOR",
+      "nacionalidade": "Canadá",
+      "ano_inicio": 2013
+    },
+    {
+      "nome": "Ken Carson",
+      "nacionalidade": "EUA",
+      "ano_inicio": 2019
+    },
+    {
+      "nome": "SZA",
+      "nacionalidade": "EUA",
+      "ano_inicio": 2011
+    }
+  ]
+}

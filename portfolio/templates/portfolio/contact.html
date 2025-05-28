@@ -1,0 +1,155 @@
+{% extends "portfolio/base.html" %}
+
+{% block main %}
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Montserrat', sans-serif;
+        background: url('/media/extra_pics/bg pc.jpg') no-repeat center center/cover;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    footer {
+        display: none;
+    }
+
+    .contact-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 30px 20px;
+        box-sizing: border-box;
+    }
+
+    .contact-box {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 900px;
+        width: 100%;
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.12);
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    }
+
+    .left-side, .right-side {
+        flex: 1;
+        padding: 20px;
+        color: #fff;
+    }
+
+    .left-side h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+        word-break: break-word;
+    }
+
+    .left-side a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #696969;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background 0.3s;
+    }
+
+    .left-side a:hover {
+        background-color: #808080;
+    }
+
+    .right-side h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group input, .form-group textarea {
+        width: 100%;
+        padding: 12px 15px;
+        background-color: rgba(255, 255, 255, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 5px;
+        font-size: 14px;
+        color: #fff;
+        outline: none;
+        transition: border 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+        border: 1px solid #fff;
+        background-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .form-group textarea {
+        resize: vertical;
+        height: 120px;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+        color: #eee;
+    }
+
+    .send-button {
+        width: 100%;
+        padding: 12px;
+        background-color: #696969;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .send-button:hover {
+        background-color: #808080;
+    }
+
+    @media (max-width: 700px) {
+        .contact-box {
+            flex-direction: column;
+        }
+
+        .left-side {
+            text-align: center;
+        }
+    }
+</style>
+
+<div class="contact-container">
+    <div class="contact-box">
+        <div class="left-side">
+            <h2>lucasrodriguesmartins01@gmail.com</h2>
+            <a href="/media/extra_files/Lucas Martins CV.pdf" download>📄 Download CV</a>
+        </div>
+        <div class="right-side">
+            <h2>Entra em Contacto</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" name="nome" placeholder="O teu nome" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="O teu email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="mensagem" placeholder="A tua mensagem" required></textarea>
+                </div>
+                <button type="submit" class="send-button">Enviar Mensagem</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends 'portfolio/base.html' %}
+
+{% block main %}
+<style>
+    .tecnologias-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        padding: 2rem 1rem;
+    }
+
+    .tecnologia-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        width: 280px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .tecnologia-card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+    .tecnologia-logo {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        margin-bottom: 1rem;
+    }
+
+    .tecnologia-card h3 {
+        margin: 0.5rem 0;
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    .tecnologia-card p {
+        font-size: 0.9rem;
+        color: #555;
+        margin: 0.5rem 0 1rem;
+    }
+
+    .tecnologia-card ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 1rem;
+    }
+
+    .tecnologia-card li {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .tecnologia-card a {
+        color: #00796b;
+        text-decoration: none;
+    }
+
+    .tecnologia-card a:hover {
+        text-decoration: underline;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 2rem;
+        font-size: 2.2rem;
+        color: #333;
+    }
+</style>
+
+<h1>Tecnologias Utilizadas</h1>
+
+<div class="tecnologias-container">
+    {% for tecnologia in tecnologias %}
+        <div class="tecnologia-card">
+            <img src="{{ tecnologia.logo.url }}" alt="{{ tecnologia.nome }}" class="tecnologia-logo">
+            <h3>{{ tecnologia.nome }}</h3>
+            <p>{{ tecnologia.descricao }}</p>
+            <h4 style="margin-top: 1rem; font-size: 1rem; color: #444;">Projetos:</h4>
+            <ul>
+                {% for projeto in tecnologia.projeto_set.all %}
+                    <li><a href="{{ projeto.link_github }}" target="_blank">{{ projeto.titulo }}</a></li>
+                {% empty %}
+                    <li>Nenhum projeto associado.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

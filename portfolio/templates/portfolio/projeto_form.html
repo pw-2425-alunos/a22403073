@@ -1,0 +1,25 @@
+{% extends "portfolio/base.html" %}
+
+{% block main %}
+<h1 style="text-align: center; margin-bottom: 2rem;">{{ titulo }}</h1>
+
+<div style="max-width: 600px; margin: 0 auto; background: #ffffff; padding: 2.5rem 2rem; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+    <form method="post" style="display: flex; flex-direction: column; gap: 1.5rem;">
+        {% csrf_token %}
+        {% for field in form %}
+            <div>
+                <label for="{{ field.id_for_label }}" style="display: block; font-weight: 600; margin-bottom: 6px; color: #333;">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                    <small style="color: red;">{{ field.errors|join:", " }}</small>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+            <button type="submit" class="btn btn-primary" style="padding: 10px 20px; border-radius: 8px;">💾 Guardar</button>
+            <a href="{% url 'portfolio:gerir_projetos' %}" class="btn btn-secondary" style="padding: 10px 20px; border-radius: 8px;">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'portfolio/base.html' %}
+{% block main %}
+<h2>{{ interesse.nome }}</h2>
+<p>{{ interesse.descricao }}</p>
+
+<h3>Projetos Relacionados:</h3>
+<ul>
+    {% for projeto in interesse.projetos.all %}
+        <li>{{ projeto }}</li>
+    {% empty %}
+        <li>Nenhum</li>
+    {% endfor %}
+</ul>
+
+<h3>Disciplinas Relacionadas:</h3>
+<ul>
+    {% for d in interesse.disciplinas.all %}
+        <li>{{ d }}</li>
+    {% empty %}
+        <li>Nenhuma</li>
+    {% endfor %}
+</ul>
+
+<h3>Tecnologias Relacionadas:</h3>
+<ul>
+    {% for t in interesse.tecnologias.all %}
+        <li>{{ t }}</li>
+    {% empty %}
+        <li>Nenhuma</li>
+    {% endfor %}
+</ul>
+{% endblock %}

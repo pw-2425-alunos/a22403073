@@ -1,0 +1,99 @@
+{% extends 'artigos/base.html' %}
+{% block main %}
+<style>
+    body {
+        background-color: #f4f6f8;
+        font-family: 'Segoe UI', sans-serif;
+        color: #333;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .card {
+        background: white;
+        padding: 1.2rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        width: 250px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 0.4rem 0.8rem;
+        background-color: #607D8B;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 1rem;
+        text-align: center;
+    }
+
+    .btn :hover{
+        background: #B0BEC5;
+    }
+
+    .rating-form {
+        margin-top: 10px;
+    }
+
+    .rating-form input[type="radio"] {
+        display: none;
+    }
+
+    .rating-form label {
+        font-size: 1.4rem;
+        color: #ccc;
+        cursor: pointer;
+    }
+
+    .rating-form input[type="radio"]:checked ~ label,
+    .rating-form label:hover,
+    .rating-form label:hover ~ label {
+        color: #B0BEC5;
+    }
+
+    .rating-form input[type="submit"] {
+        margin-top: 0.5rem;
+        padding: 0.3rem 0.8rem;
+        border: none;
+        background: #607D8B;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .rating-form input[type="submit"]:hover {
+        background: #218838;
+    }
+</style>
+
+<h1>Artigos</h1>
+
+<div class="container">
+    {% for artigo in artigos %}
+        <div class="card">
+            <h3>{{ artigo.titulo }}</h3>
+            <p><strong>Autor:</strong> {{ artigo.autor }}</p>
+            <p><strong>Data:</strong> {{ artigo.data_publicacao }}</p>
+            <p>{{ artigo.conteudo|truncatewords:20 }}</p>
+
+            <form method="post" action="{% url 'artigos:avaliar_artigo' artigo.id %}" class="rating-form">
+                {% csrf_token %}
+                {% for i in "54321"|make_list %}
+                    <input type="radio" id="star{{ i }}-{{ artigo.id }}" name="rating" value="{{ i }}">
+                    <label for="star{{ i }}-{{ artigo.id }}">&#9733;</label>
+                {% endfor %}
+                <br>
+                <input type="submit" value="Avaliar">
+            </form>
+
+            <a href="{% url 'artigos:ver_artigo' artigo.id %}" class="btn">Ver Mais</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

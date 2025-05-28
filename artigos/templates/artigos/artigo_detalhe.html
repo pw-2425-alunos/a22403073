@@ -1,0 +1,37 @@
+{% extends 'artigos/base.html' %}
+
+{% block title %}{{ artigo.titulo }}{% endblock %}
+
+{% block main %}
+    <h2>{{ artigo.titulo }}</h2>
+    <p><strong>Autor:</strong> {{ artigo.autor }}</p>
+    <p><strong>Publicado em:</strong> {{ artigo.data_publicacao }}</p>
+    <p><strong>Conteúdo:</strong><br> {{ artigo.conteudo }}</p>
+
+    <h3>Avaliação atual: {{ artigo.rating }}/5</h3>
+    <form method="post" action="{% url 'artigos:avaliar_artigo' artigo.id %}">
+        {% csrf_token %}
+        <label for="rating">Avalia este artigo (0-5):</label>
+        <input type="number" name="rating" min="0" max="5" required>
+        <button type="submit">Submeter avaliação</button>
+    </form>
+
+    <hr>
+    <h3>Comentários:</h3>
+    {% for comentario in comentarios %}
+        <div>
+            <p><strong>{{ comentario.nome }}</strong> ({{ comentario.data_comentario|date:"d/m/Y H:i" }})</p>
+            <p>{{ comentario.conteudo }}</p>
+        </div>
+        <hr>
+    {% empty %}
+        <p>Sem comentários ainda.</p>
+    {% endfor %}
+
+    <h4>Adicionar Comentário:</h4>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Comentar</button>
+    </form>
+{% endblock %}

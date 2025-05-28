@@ -1,0 +1,61 @@
+{% extends 'artigos/base.html' %}
+{% block main %}
+<style>
+    .form-wrapper {
+        max-width: 600px;
+        margin: 2rem auto;
+        background: #fff;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .form-wrapper h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    form label {
+        font-weight: bold;
+        display: block;
+        margin-top: 1rem;
+    }
+
+    form input,
+    form textarea,
+    form select {
+        width: 100%;
+        padding: 0.6rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 0.3rem;
+    }
+
+    form button {
+        margin-top: 1.5rem;
+        background: #0066cc;
+        color: white;
+        border: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        display: block;
+        width: 100%;
+    }
+
+    form button:hover {
+        background: #004c99;
+    }
+</style>
+
+<div class="form-wrapper">
+    <h2>{{ operacao }} Artigo</h2>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{{ operacao }}</button>
+</form>
+    </form>
+</div>
+{% endblock %}

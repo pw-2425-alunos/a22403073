@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfólio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: #333;
+            color: white;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .menu-toggle {
+            margin-left: 1em;
+            cursor: pointer;
+            font-size: 1.5em;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 60px;
+            left: 10px;
+            background: #444;
+            border: 1px solid #222;
+            display: none;
+            flex-direction: column;
+            padding: 0.5em;
+        }
+
+        .dropdown-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            display: block;
+        }
+
+        .dropdown-menu a:hover {
+            background: #555;
+        }
+
+        .logo, nav {
+            margin: 0 3em;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-left: 15px;
+        }
+
+        main {
+            padding: 180px 2em 2em;
+        }
+
+        footer {
+            background: #eee;
+            text-align: center;
+            padding: 1em;
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 40px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+    <div style="display: flex; align-items: center;">
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <div class="logo">Lucas Martins</div>
+    </div>
+
+    <div class="dropdown-menu" id="dropdownMenu">
+        <a href="{% url 'portfolio:login' %}">Login</a>
+        <a href="{% url 'portfolio:registo' %}">Sign In</a>
+        <a href="{% url 'portfolio:pedido_link_magico' %}">Link mágico</a>
+        {% load socialaccount %}
+        {% providers_media_js %}
+        <a href="{% provider_login_url 'google' %}">Login com Google</a>
+        <a href="{% url 'portfolio:logout' %}">Logout</a>
+    </div>
+
+    <nav>
+        <a href="{% url 'portfolio:index' %}">Início</a>
+        <a href="{% url 'portfolio:sobre' %}">Sobre</a>
+        <a href="{% url 'portfolio:interesses' %}">Interesses</a>
+        <a href="{% url 'portfolio:projetos' %}">Projetos</a>
+        <a href="{% url 'portfolio:tecnologias' %}">Tecnologias</a>
+        <a href="{% url 'portfolio:contact' %}">Contacta-me</a>
+        <a href="{% url 'portfolio:interesses_defesa' %}" >Inteteresses Defesa</a>
+
+    </nav>
+</header>
+
+
+    <main>
+        {% block main %}
+        {% endblock %}
+    </main>
+
+    <footer>
+         <p>Visitantes: {{ visitantes }}</p>
+         <p>ULusófona, 2025</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("dropdownMenu");
+            menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+        }
+    </script>
+
+</body>
+</html>

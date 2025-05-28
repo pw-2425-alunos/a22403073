@@ -1,0 +1,104 @@
+{
+  "albuns": [
+    {
+      "titulo": "Whole Lotta Red",
+      "artista": "Playboi Carti",
+      "ano_lancamento": 2020,
+      "musicas": [
+        {"titulo": "Rockstar Made", "duracao": "3:12"},
+        {"titulo": "Stop Breathing", "duracao": "3:38"},
+        {"titulo": "Beno!", "duracao": "2:33"}
+      ]
+    },
+    {
+      "titulo": "I NEVER LIKED YOU",
+      "artista": "Future",
+      "ano_lancamento": 2022,
+      "musicas": [
+        {"titulo": "712PM", "duracao": "2:51"},
+        {"titulo": "WAIT FOR U", "duracao": "3:09"},
+        {"titulo": "PUFFIN ON ZOOTIEZ", "duracao": "2:52"}
+      ]
+    },
+    {
+      "titulo": "DS4EVER",
+      "artista": "Gunna",
+      "ano_lancamento": 2022,
+      "musicas": [
+        {"titulo": "pushin P", "duracao": "2:16"},
+        {"titulo": "too easy", "duracao": "2:34"},
+        {"titulo": "private island", "duracao": "2:41"}
+      ]
+    },
+    {
+      "titulo": "My Turn",
+      "artista": "Lil Baby",
+      "ano_lancamento": 2020,
+      "musicas": [
+        {"titulo": "Woah", "duracao": "3:03"},
+        {"titulo": "Sum 2 Prove", "duracao": "3:25"},
+        {"titulo": "Emotionally Scarred", "duracao": "3:18"}
+      ]
+    },
+    {
+      "titulo": "Blonde",
+      "artista": "Frank Ocean",
+      "ano_lancamento": 2016,
+      "musicas": [
+        {"titulo": "Nikes", "duracao": "5:14"},
+        {"titulo": "Ivy", "duracao": "4:09"},
+        {"titulo": "Pink + White", "duracao": "3:04"}
+      ]
+    },
+    {
+      "titulo": "Wasteland",
+      "artista": "Brent Faiyaz",
+      "ano_lancamento": 2022,
+      "musicas": [
+        {"titulo": "LOOSE CHANGE", "duracao": "4:12"},
+        {"titulo": "ALL MINE", "duracao": "3:35"},
+        {"titulo": "ROLLING STONE", "duracao": "3:11"}
+      ]
+    },
+    {
+      "titulo": "Punk",
+      "artista": "Young Thug",
+      "ano_lancamento": 2021,
+      "musicas": [
+        {"titulo": "Die Slow", "duracao": "3:35"},
+        {"titulo": "Stressed", "duracao": "3:22"},
+        {"titulo": "Bubbly", "duracao": "2:46"}
+      ]
+    },
+    {
+      "titulo": "PARTYMOBILE",
+      "artista": "PARTYNEXTDOOR",
+      "ano_lancamento": 2020,
+      "musicas": [
+        {"titulo": "TURN UP", "duracao": "3:30"},
+        {"titulo": "LOYAL", "duracao": "3:17"},
+        {"titulo": "SPLIT DECISION", "duracao": "2:34"}
+      ]
+    },
+    {
+      "titulo": "A Great Chaos",
+      "artista": "Ken Carson",
+      "ano_lancamento": 2023,
+      "musicas": [
+        {"titulo": "Fighting My Demons", "duracao": "2:45"},
+        {"titulo": "Paranoid", "duracao": "3:10"},
+        {"titulo": "Like This", "duracao": "3:00"}
+      ]
+    },
+    {
+      "titulo": "SOS",
+      "artista": "SZA",
+      "ano_lancamento": 2022,
+      "musicas": [
+        {"titulo": "Kill Bill", "duracao": "2:33"},
+        {"titulo": "Good Days", "duracao": "4:39"},
+        {"titulo": "Nobody Gets Me", "duracao": "3:01"}
+      ]
+    }
+  ]
+}

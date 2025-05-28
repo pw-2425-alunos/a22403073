@@ -1,0 +1,20 @@
+{% extends 'portfolio/base.html' %}
+
+{% block main %}
+<h1>Professores</h1>
+<ul>
+    {% for professor in professores %}
+        <li>
+            <strong>{{ professor.nome }}</strong><br>
+            Disciplina: {{ professor.disciplina }}<br>
+            Email: <a href="mailto:{{ professor.email }}">{{ professor.email }}</a><br>
+            {% if professor.foto %}
+                <img src="{{ professor.foto.url }}" alt="{{ professor.nome }}" width="100">
+            {% endif %}
+        </li>
+        <hr>
+    {% empty %}
+        <li>Sem professores registados.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

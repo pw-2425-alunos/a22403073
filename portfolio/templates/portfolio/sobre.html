@@ -1,0 +1,48 @@
+{% extends "portfolio/base.html" %}
+
+{% block main %}
+    <div style="padding: 2rem; background: #f8f9fa; min-height: 100vh;">
+        <h1 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">Apresentação Técnica do Projeto</h1>
+
+        <section style="background: white; padding: 2rem; margin-bottom: 2rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <h2 style="border-bottom: 2px solid #555; padding-bottom: 0.5rem;">Principais Tecnologias Utilizadas</h2>
+            <ul style="list-style-type: none; padding: 0; margin-top: 1rem;">
+                <li><strong>Backend: </strong> Django (Python)</li>
+                <li><strong>Frontend: </strong> HTML5, CSS3, Django Templates</li>
+                <li><strong>Base de Dados: </strong> SQLite & MySQL </li>
+                <li><strong>Serviços Externos: </strong> GitHub</li>
+                <li><strong>Outras Ferramentas: </strong> Pythonanywhere</li>
+            </ul>
+        </section>
+
+        <section style="background: white; padding: 2rem; margin-bottom: 2rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <h2 style="border-bottom: 2px solid #555; padding-bottom: 0.5rem;">Arquitetura da Aplicação</h2>
+            <p>
+                <img src="/media/tecnologias_logos/AppMap.png" alt="Arquitetura" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); width:500px; height:500px;">
+            </p>
+        </section>
+
+        <section style="background: white; padding: 2rem; margin-bottom: 2rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <h2 style="border-bottom: 2px solid #555; padding-bottom: 0.5rem;">Modelação e Relacionamentos</h2>
+            <p style="margin-top: 1rem;">Relações existentes:</p>
+            <ul>
+                <li><strong>Disciplina ➔ Projeto: </strong> 1 ➔  N </li>
+                <li><strong>Projeto ➔ Tecnologia: </strong> N ➔  N</li>
+                <li><strong>Projeto ➔ ImagemProjeto: </strong> 1 ➔  N </li>
+                <li><strong>Projeto ➔ Conceito: </strong> 1 ➔  1</li>
+            </ul>
+            <p>
+                <img src="/media/extra_pics/modelagem.png" alt="Modelagem" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                Falta diagrama DER
+            </p>
+        </section>
+
+        <section style="background: white; padding: 2rem; margin-bottom: 2rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <h2 style="border-bottom: 2px solid #555; padding-bottom: 0.5rem;">Estrutura de Páginas</h2>
+            <p>
+                <img src="/media/extra_pics/Estrutura das paginas.drawio.png" alt="Mapa de Páginas" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); width:500px; height:500px;">
+            </p>
+        </section>
+
+    </div>
+{% endblock %}

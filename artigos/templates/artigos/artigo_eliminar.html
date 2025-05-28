@@ -1,0 +1,16 @@
+{% extends 'artigos/base.html' %}
+
+{% block main %}
+<div style="max-width: 500px; margin: auto; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+  <h2 style="color: #e53935;">Eliminar Artigo</h2>
+  <p>Tens a certeza que queres eliminar o artigo <strong>"{{ artigo.titulo }}"</strong>?</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <div style="margin-top: 2rem; display: flex; justify-content: space-between;">
+      <a href="{% url 'artigos:gerir_artigos' %}" class="btn btn-secondary">Cancelar</a>
+      <button type="submit" class="btn btn-danger">Eliminar</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Gestão de Artigos{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background-color: #f7f9fc;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+        }
+
+        nav {
+            margin-top: 0.5rem;
+        }
+
+        nav a {
+            color: white;
+            margin-right: 1rem;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 2rem;
+            min-height: 80vh;
+        }
+
+        footer {
+            background-color: #eee;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Artigos</h1>
+    <nav>
+        <a href="{% url 'artigos:listar_artigos' %}">Início</a>
+        <a href="{% url 'artigos:criar_artigo' %}">Novo Artigo</a>
+        <a href="{% url 'artigos:gerir_artigos' %}">Gerir Artigos</a>
+    </nav>
+</header>
+
+<main>
+    {% block main %}
+    {% endblock %}
+</main>
+
+<footer>
+    &copy; {{ year|default:2025 }} Gestão de Artigos | Universidade Lusófona
+</footer>
+
+</body>
+</html>

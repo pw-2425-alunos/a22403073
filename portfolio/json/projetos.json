@@ -1,0 +1,158 @@
+[
+  {
+    "model": "portfolio.disciplina",
+    "pk": 1,
+    "fields": {
+      "nome": "Arquitetura Avançada de Computadores",
+      "ano": 2,
+      "semestre": 1,
+      "docentes": "Daniel Sobral",
+      "link_moodle": "https://moodle.ensinolusofona.pt/course/view.php?id=26460",
+      "link_ulusofona": "https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-13398"
+    }
+  },
+  {
+    "model": "portfolio.disciplina",
+    "pk": 2,
+    "fields": {
+      "nome": "Programacao Web",
+      "ano": 2,
+      "semestre": 2,
+      "docentes": "Lucio Studer, Martim Mourão, Pedro Perdigão",
+      "link_moodle": "https://moodle.ensinolusofona.pt/course/view.php?id=30559",
+      "link_ulusofona": "https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-11195"
+    }
+  },
+  {
+    "model": "portfolio.disciplina",
+    "pk": 3,
+    "fields": {
+      "nome": "Algoritmia e Estrutura de Dados",
+      "ano": 1,
+      "semestre": 2,
+      "docentes": "Pedro Alves, Duarte Neves",
+      "link_moodle": "https://moodle.ensinolusofona.pt/my/courses.php",
+      "link_ulusofona": "https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-13397"
+    }
+  },
+  {
+    "model": "portfolio.disciplina",
+    "pk": 4,
+    "fields": {
+      "nome": "Linguagem de programação 2",
+      "ano": 2,
+      "semestre": 1,
+      "docentes": "Pedro Alves, Duarte Neves",
+      "link_moodle": "https://moodle.ensinolusofona.pt/course/view.php?id=26874",
+      "link_ulusofona": "https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-898"
+    }
+  },
+  {
+    "model": "portfolio.disciplina",
+    "pk": 5,
+    "fields": {
+      "nome": "Desenvolvimento de Interfaces Web",
+      "ano": 2,
+      "semestre": 1,
+      "docentes": "Lucio Studer",
+      "link_moodle": "https://moodle.ensinolusofona.pt/course/view.php?id=28717",
+      "link_ulusofona": "https://www.ulusofona.pt/lisboa/licenciaturas/engenharia-informatica/ULHT260-26141"
+    }
+  },
+  {
+    "model": "portfolio.tecnologia",
+    "pk": 1,
+    "fields": {
+      "nome": "TinkerCad",
+      "descricao": "Plataforma de prototipagem eletrónica.",
+      "logo": "tecnologias_logos/tk.png"
+    }
+  },
+  {
+    "model": "portfolio.tecnologia",
+    "pk": 2,
+    "fields": {
+      "nome": "Django",
+      "descricao": "Framework web em Python.",
+      "logo": "tecnologias_logos/django-python-logo.png"
+    }
+  },
+  {
+    "model": "portfolio.tecnologia",
+    "pk": 3,
+    "fields": {
+      "nome": "React / Next.js",
+      "descricao": "Framework frontend library.",
+      "logo": "tecnologias_logos/react,next.png"
+    }
+  },
+  {
+    "model": "portfolio.tecnologia",
+    "pk": 4,
+    "fields": {
+      "nome": "Kotlin / Java",
+      "descricao": "High-level programming language",
+      "logo": "tecnologias_logos/Kotlin-Java-Directory-Image.jpg"
+    }
+  },
+  {
+    "model": "portfolio.projeto",
+    "pk": 1,
+    "fields": {
+      "titulo": "Semaforo Inteligente",
+      "descricao": "Projeto de semáforo com sensores de movimento, utilizando 2 arduinos no tinkercad com programação em C.",
+      "link_github": "https://www.tinkercad.com/things/dsIz6cjvTzI-copy-of-projeto-aac/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard",
+      "link_demo": "https://www.tinkercad.com/things/dsIz6cjvTzI-copy-of-projeto-aac/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard",
+      "disciplina": 1,
+      "tecnologias": [1]
+    }
+  },
+  {
+    "model": "portfolio.projeto",
+    "pk": 2,
+    "fields": {
+      "titulo": "DesisiFlix",
+      "descricao": "Programa que funciona de search engine para filtrar e descobrir filmes da netflix.",
+      "link_github": "https://github.com/costagoncaloo/DeisiFlix",
+      "link_demo": "https://www.youtube.com/",
+      "disciplina": 3,
+      "tecnologias": [4]
+    }
+  },
+  {
+    "model": "portfolio.projeto",
+    "pk": 3,
+    "fields": {
+      "titulo": "Website sobre Singapura",
+      "descricao": "Website sobre Singapura. Ao decorrer do tempo e da matéria disponibilizada pelo professor, fomos progressivamente aprimorando o nosso website e as nossas skills em React / Next.js",
+      "link_github": "https://github.com/lucasrmartins0/lucasmartinsnext",
+      "link_demo": "https://github.com/lucasrmartins0/lucasmartinsnext",
+      "disciplina": 5,
+      "tecnologias": [3]
+    }
+  },
+  {
+    "model": "portfolio.projeto",
+    "pk": 4,
+    "fields": {
+      "titulo": "The Night of the Living DEISI",
+      "descricao": "Jogo de tabuleiro de sobrevivência com parecências ao 'Plants vs Zombies'. ",
+      "link_github": "https://github.com/ULHT-LP2-2024-25-students/projeto-lp2-prof-duarte-neves-asa-a22304875-lmartins-a22403073",
+      "link_demo": "https://www.youtube.com/watch?v=oRB-hGOJKxs&ab_channel=TaMag0ch1",
+      "disciplina": 4,
+      "tecnologias": [4]
+    }
+  },
+  {
+    "model": "portfolio.projeto",
+    "pk": 5,
+    "fields": {
+      "titulo": "Portfólio",
+      "descricao": "O meu próprio portfólio usando a framwork Django.",
+      "link_github": "https://github.com/teuuser/portfolio",
+      "link_demo": "https://youtu.be/demo-portfolio",
+      "disciplina": 2,
+      "tecnologias": [2]
+    }
+  }
+]
