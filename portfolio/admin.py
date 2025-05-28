@@ -1,7 +1,7 @@
 # portfolio/admin.py
 
 from django.contrib import admin
-from .models import Disciplina, Projeto, ImagemProjeto, Tecnologia, Conceito, Professor, Interesse
+from .models import Disciplina, Projeto, ImagemProjeto, Tecnologia, Conceito, Professor, Interesse, Visitante
 
 class ImagemProjetoInline(admin.TabularInline):
     model = ImagemProjeto
@@ -45,9 +45,12 @@ class InteresseAdmin(admin.ModelAdmin):
     search_fields = ('nome', 'descricao')
 
 
+
+
 admin.site.register(Disciplina, DisciplinaAdmin)
 admin.site.register(Tecnologia, TecnologiaAdmin)
 admin.site.register(Projeto, ProjetoAdmin)
 admin.site.register(Conceito, ConceitoAdmin)
 admin.site.register(Professor, ProfessorAdmin)
 admin.site.register(Interesse, InteresseAdmin)
+admin.site.register(Visitante)
