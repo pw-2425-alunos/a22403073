@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     "noobsite",
     "portfolio",
     "django_extensions",
+    "ninja",
 
     #Allauth
     'allauth',
