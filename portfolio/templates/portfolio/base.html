@@ -107,6 +107,7 @@
         <a href="{% url 'portfolio:pedido_link_magico' %}">Link mágico</a>
         {% load socialaccount %}
         {% providers_media_js %}
+        <!-- Desativei o login com o google para testar -->
         <a href="{% provider_login_url 'google' %}">Login com Google</a>
         <a href="{% url 'portfolio:logout' %}">Logout</a>
     </div>
