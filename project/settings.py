@@ -39,6 +39,10 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='a22403073.pythonanywhere.com', 
 # DEBUG = False
 # ALLOWED_HOSTS = ['a22403073.pw.deisi.ulusofona.pt']
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://a22403073.pw.deisi.ulusofona.pt/",
+]
+
 # Application definition
 
 INSTALLED_APPS = [
