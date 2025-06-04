@@ -53,6 +53,14 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
+    "django_extensions",
+    "ninja",
+
+     #Allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 
     #Apps do projeto
     "pessoas",
@@ -60,14 +68,6 @@ INSTALLED_APPS = [
     "artigos",
     "noobsite",
     "portfolio",
-    "django_extensions",
-    "ninja",
-
-    #Allauth
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -83,7 +83,6 @@ MIDDLEWARE = [
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
@@ -128,19 +127,6 @@ WSGI_APPLICATION = "project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'a22403073$portfoliodb',
-        'USER': 'a22403073',
-        'PASSWORD': 'lucas12345',
-        'HOST': 'a22403073.mysql.pythonanywhere-services.com',
-        'PORT': '3306',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
-    }
-}
 
 DB_ENGINE = config('DB_ENGINE', default='sqlite')
 
@@ -153,6 +139,9 @@ if DB_ENGINE == 'mysql':
             'PASSWORD': config('DB_PASSWORD'),
             'HOST': config('DB_HOST', default='localhost'),
             'PORT': config('DB_PORT', default='3306'),
+            'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            },
         }
     }
 else:
@@ -219,7 +208,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = '/home/a22403073/project/static'
 STATIC_URL = '/static/'
 
-
 LOGIN_URL = 'portfolio:login'
 LOGIN_REDIRECT_URL = 'portfolio:index'
 LOGOUT_REDIRECT_URL = 'portfolio:login'
@@ -231,4 +219,3 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'lucasrodriguesmartins01@gmail.com'
 EMAIL_HOST_PASSWORD = 'lucas12345'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-
