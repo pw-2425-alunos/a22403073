@@ -36,6 +36,9 @@ SECRET_KEY = config('SECRET_KEY', default='django-insecure-c!vo#t7-)z+gr$1vlu1%l
 DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='a22403073.pythonanywhere.com', cast=Csv())
 
+# DEBUG = False
+# ALLOWED_HOSTS = ['a22403073.pw.deisi.ulusofona.pt']
+
 # Application definition
 
 INSTALLED_APPS = [
